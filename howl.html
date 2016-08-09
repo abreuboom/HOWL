@@ -1,0 +1,163 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="MobileOptimized" content="320">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="howl.css">
+    <link rel="stylesheet" href="animate.css">
+    <link rel="stylesheet" type="text/css" href="css/myapp.css">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+   <title> HOWL </title>
+</head>
+<body>
+    {{>loginButtons}}
+    
+    {{#if checkFilter}}
+        <div class="animated slideInDown" id=filterbg>
+            {{> filter}}
+        </div>
+    {{/if}}
+    
+    {{#if checkInput}}
+        <div class="animated slideInDown" id=inputbg>
+            {{> input}}
+        </div>
+    {{/if}}
+    
+    {{> button}}
+    
+    {{> feed}}
+    
+</body>
+
+<template name="button">
+    <div id=buttonContainer>
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    
+        <div class="container-fluid">
+            
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                
+                <a class="navbar-brand" id=HOWL_NAV>HOWL</a>
+                
+                  
+         
+<a class="container">
+    <form class="searchbox">
+        <input type="search" placeholder="Find Howls" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+        <input type="submit" class="searchbox-submit" value="">
+        <span class="searchbox-icon"><span class="glyphicon glyphicon-search" aria-hidden="true" id="searchButton"></span></span>
+    </form>
+        
+</a>                      
+                      <ul class="navbar-header navbar-left">
+                <label class="menu-btn" for="menu-checkbox">
+    <span class="three-lines">&#8801;</span>
+  </label>
+                </ul>      
+            </div>
+        </div>
+    </nav>
+        
+    <nav class="menu">
+  <div class="menu-item">
+    <a><a href="Efma">My Profile</a></a>
+  </div>
+  <div class="menu-item">
+    <a><a href="John">Groups</a></a>
+  </div>
+  <div class="menu-item">
+    <a><a href="Ayinde">Settings</a></a>
+  </div>
+    <div class="menu-item">
+    <a><a href="Us">About Us</a></a>
+    </div>
+    </nav>
+    
+    <a>
+        <div id=HOWL_img>
+        <h3 align=center id=HOWL_img_h3>NEW HOWL</h3>
+        </div>
+    </a>
+        
+    </div>
+</template>
+
+<template name="feed">
+    <div id=feedContainer align=center> 
+        {{#each post}}     
+        <div class="animated slideInLeft" id=aPost>
+        <div class="panel panel-{{Color}}" id=panels>
+            <div class="panel-heading">
+                <h3 class="panel-title" align=left>
+                    {{subject}}
+                    <span class="badge" align=right> 12 </span>
+                </h3>
+            </div>
+            <div class="panel-body" align=left>
+                {{moreInfo}}
+            </div>
+        </div>
+        </div>
+        {{/each}}
+    </div>
+</template>
+
+<template name="input">
+    <div>
+    <span class="glyphicon glyphicon-remove" aria-hidden="true" id=remove></span>
+        <div align=center>
+    <div class="input-group" id=forms align=center>
+        <label for="pwd" align=center id=help>Need Help?</label> 
+        <div>
+    <select id=subSelect class="selectpicker" align=center>
+        <option value="">Choose Subject</option>
+        <option value="Math">Math</option>
+        <option value="Science">Science</option>
+        <option value="History">History</option>
+        <option value="English">English</option>
+        <option value="Language">Language</option>
+    </select>
+            </div>
+    <span class=input-group align=center> 
+            <input type="text" class="form-control" placeholder="What do you need help with?" id="info">
+        </span>
+    <div>
+        <button class="btn btn-default" id ="Send">HOWL</button>
+    </div>
+    </div>
+        </div>
+    </div>
+</template>
+
+<template name="filter">
+    <span class="glyphicon glyphicon-remove" aria-hidden="true" id=removeFilter></span>
+    <div id=filterbtns class=animated slideInUp align=center>
+        <div>
+            <button type="button" class="btn btn-info" id=mbtn>Math</button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-success" id=sbtn>Science</button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-danger" id=hbtn>History</button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-default" id=ebtn>English</button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-warning" id=lbtn>Language</button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary" id=dbtn>Developer</button>
+        </div>
+    </div>
+</template>

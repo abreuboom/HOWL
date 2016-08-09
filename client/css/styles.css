@@ -1,0 +1,32 @@
+
+.movieImage {
+    width: 300px;
+    height: 400px;
+}
+
+.row {
+    padding: 20px
+}
+
+#text{
+    color: white;
+}
+
+#forms{
+    width:auto;
+    max-width: 50%;
+}
+
+#message-line{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width:60%;
+}
+
+#mess{
+    background: #e5e5e5;
+}
+
+#sizing-addon2{
+    background: #8d85eb;
+}
